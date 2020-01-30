@@ -1,3 +1,7 @@
+## 1.0.0
+
+* Dependencies fixing FBSDKShareKit to 4.42.0 to avoid FBSDKCoreKit error
+
 ## 0.0.1+3
 
 * Default value on each function

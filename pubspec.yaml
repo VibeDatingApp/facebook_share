@@ -1,6 +1,6 @@
 name: facebook_share
 description: Plugin that implement Facebook SDK to share content and send message via Facebook Messenger
-version: 0.0.1+3
+version: 1.0.0
 author: Richardo <richardothayeb@gmail.com>
 homepage: https://github.com/ricnaaru
 
