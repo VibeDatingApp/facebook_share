@@ -48,14 +48,24 @@
         FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
         content.contentURL = [NSURL URLWithString: url];
         
-        if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"fb-messenger://"]]) {
-            self.resultHandler = result;
-            [FBSDKMessageDialog showWithContent:content delegate:nil];
-        } else {
+        FBSDKMessageDialog *messageDialog = [[FBSDKMessageDialog alloc] init];
+        messageDialog.shareContent = content;
+
+        if ([messageDialog canShow]) {
+            [messageDialog show];
+        }   else {
             result([FlutterError errorWithCode:@"unavailable"
                                        message:@"not_installed"
                                        details:nil]);
         }
+        // if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"fb-messenger://"]]) {
+        //     self.resultHandler = result;
+        //     [FBSDKMessageDialog showWithContent:content delegate:nil];
+        // } else {
+        //     result([FlutterError errorWithCode:@"unavailable"
+        //                                message:@"not_installed"
+        //                                details:nil]);
+        // }
     } else {
         result(FlutterMethodNotImplemented);
     }

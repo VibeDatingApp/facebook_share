@@ -15,8 +15,8 @@ Facebook Share Plugin
   s.source_files = 'Classes/**/*'
   s.public_header_files = 'Classes/**/*.h'
   s.dependency 'Flutter'
-  s.dependency 'FBSDKShareKit', '~> 4.42.0'
+  s.dependency 'FBSDKShareKit', '~> 5.15.1'
 
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '11.0'
 end
 
