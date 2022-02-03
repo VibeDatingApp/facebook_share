@@ -24,7 +24,8 @@
         content.quote = quote;
         self.resultHandler = result;
         
-        FBSDKShareDialog *dialog = [[FBSDKShareDialog alloc] init];
+        FBSDKShareDialog *dialog;
+        
         
         if ([UIApplication sharedApplication].keyWindow.rootViewController == (id)[NSNull null] )  {
             UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -32,14 +33,11 @@
             UIWindow *window = [UIApplication sharedApplication].delegate.window;
             UINavigationController *x = [[UINavigationController alloc] initWithRootViewController:vc];
             window.rootViewController = x;
-            dialog.fromViewController = x;
+            dialog = [FBSDKShareDialog dialogWithViewController:x withContent:content delegate:self];
         } else {
-            dialog.fromViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+            dialog = [FBSDKShareDialog dialogWithViewController:[UIApplication sharedApplication].keyWindow.rootViewController withContent:content delegate:self];
         }
         
-        
-        dialog.shareContent = content;
-        dialog.delegate = self;
         dialog.mode = FBSDKShareDialogModeAutomatic;
         
         [dialog show];
