@@ -15,7 +15,7 @@ Facebook Share Plugin
   s.source_files = 'Classes/**/*'
   s.public_header_files = 'Classes/**/*.h'
   s.dependency 'Flutter'
-  s.dependency 'FBSDKShareKit', '~> 12.2.1'
+  s.dependency 'FBSDKShareKit', '~> 12.3.1'
 
   s.ios.deployment_target = '11.0'
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
